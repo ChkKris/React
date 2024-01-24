@@ -27,3 +27,44 @@ Lifecycle methods are built-in React methods that work with
 components throughout their entire stay in the DOM.
 Higher Order Component (HOC) is an advanced React technique for reusing component logic.
 This component is not a React component available in the API. This is a pattern that emerged as a result of the compositional nature of React. Essentially, HOC are functions that return components that are used to share logic with other components.
+
+### React components - Components are reusable segments of code that come under the class and functional component types.
+```
+import React from 'react';
+import {Text} from 'react-native’;
+const Helloworld= ()=>
+{
+    return
+    (Hello, World!);
+}
+export default Helloworld;
+```
+
+### React class Component - React class component contains- Props: set from outside the class State: internal to the class
+```
+import React from "react";
+class App extends React.Component {
+constructor(props) {
+super(props);
+this.state={change: true };
+}
+render() {
+return(
+<button Click={()=>{this.setState({change: !this.state.change});}}>Click Here!</button>
+{this.state.change?(Hello!!):(Welcome to the React Course)});}}
+export default App;
+```
+
+### onClick - When an event fires, event handlers decide what should happen next. This could involve pressing a button or altering a text entry.
+```
+function changeColor() {
+const shoot = () => {
+    alert("Color Changed!");
+}
+return (
+<button onClick={change}>Change the Color! </button>
+);
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<changeColor />);
+```
