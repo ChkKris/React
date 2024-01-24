@@ -1,4 +1,7 @@
 # React
+React is a JavaScript user interface (UI) library created and maintained by Facebook and the developer community as open source.
+
+
 ## JSX
 JSX is a syntactic extension to regular JavaScript and is used to create React elements. These elements are then rendered in the React Document Object Model, or DOM. JSX is a declarative language that combines JavaScript with HTML. JSX  particularly popular in React applications, optimizes code performance by compiling source code into JavaScript that runs faster than its equivalent code written directly in JavaScript.
 
@@ -6,11 +9,15 @@ I have mastered:
 -	Create a simple React page
 -	Create, run and render a React application
 -	Set properties for a react component
+> Functional components are most useful when the component has properties (props), but there is no need to manage the component's lifecycle. Properties can be constrained by the user and passed to the function as parameters.
+
+> Class components are preferred over functional components because of their versatility. They inherit from React.Component and must override the render method. Class components can have states and properties. These components have a life cycle that can be managed and maintained. This way you can create a class component instead of an application with functional components.
 
 
 ## Components
 Components make the task of creating a user interface easier. The user interface can be broken down into several separate parts called components and combine them into a parent component that forms the final user interface. They can be reused and processed independently.
 The main function of a React component is to render the user interface and update it whenever its internal state changes.
+Components in a React application can be styled by using the className attribute and applying any Cascading Style Sheets (CSS) styles to it.
 - In addition to rendering the UI, it manages UI-related events, such as a button component that has a click event.
 - A state is an object that describes the behavior and display of a component at a given moment.
 - A React component can be stateful or stateless.
