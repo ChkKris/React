@@ -94,6 +94,7 @@ Is the removal of a component from the Document Object Model (DOM).
 1. The `componentDidMount()` method is called immediately after the component is mounted or inserted into the DOM tree.
 1. The `getDerivedStateFromProps()` method is used only when the state depends on changes in the props.
 1. The `shouldComponentUpdate()` method returns true by default.
-1. The `getSnapshotBeforeUpdate()` method is called just before the changes are rendered. It helps you track changes. Any value returned by this lifecycle will be passed as a parameter to the `componentDidUpdate()` method, and `componentDidUpdate()` will be called immediately after the update. 
+1. The `getSnapshotBeforeUpdate()` method is called just before the changes are rendered. It helps you track changes. Any value returned by this lifecycle will be passed as a parameter to the `componentDidUpdate()` method, and `componentDidUpdate()` will be called immediately after the update.
+1. When a component is unmounted or removed from the DOM tree, the `componentWillUnmount()` method is called. 
 
 
