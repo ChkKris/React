@@ -138,10 +138,11 @@ class App extends React.Component {
 	}
 
 	render() {
-		console.log("Inside render method")
+		console.log("Inside render")
 		return (
 			<div>
-				The component is rendered
+				<button onClick={this.incrementCounter}>Click Me</button>
+				{this.state.counter}
 			</div>
 		);
 	}
