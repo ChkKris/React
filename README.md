@@ -68,3 +68,14 @@ return (
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<changeColor />);
 ```
+
+
+**State** is a simple JavaScript object used by React to represent information about the current situation in a component. The heart of every React component is its "state".
+The state of a component is an object containing some information that may change during the life of the component.
+State can only be used natively in class components. In functional components, you must use the ```useState``` hook to enable stateful functions.
+> State is used to manage data and props are used to transfer data.
+
+> State can be changed using the setState() method, while properties can be passed from a parent component to a child component only in a unidirectional flow.
+
+
+
