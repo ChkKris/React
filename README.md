@@ -95,6 +95,43 @@ Is the removal of a component from the Document Object Model (DOM).
 1. The `getDerivedStateFromProps()` method is used only when the state depends on changes in the props.
 1. The `shouldComponentUpdate()` method returns true by default.
 1. The `getSnapshotBeforeUpdate()` method is called just before the changes are rendered. It helps you track changes. Any value returned by this lifecycle will be passed as a parameter to the `componentDidUpdate()` method, and `componentDidUpdate()` will be called immediately after the update.
-1. When a component is unmounted or removed from the DOM tree, the `componentWillUnmount()` method is called. 
+1. When a component is unmounted or removed from the DOM tree, the `componentWillUnmount()` method is called.
+
+```
+class App extends React.Component {
+	state = { childColor: "green", name: "John" }
+	changeColor = () => {
+		const newColor = document.getElementById("colorbox").value;
+		this.setState({childColor: newColor})
+	}
+
+	changeName = () => {
+		const newName = document.getElementById("namebox").value;
+		this.setState({ childColor: newName})
+	}
+
+	render() {
+		console.log("Inside render")
+		return (
+			<div>
+				Color <input type="Text" onChange=(this.changeColor) id="colorbox"/>
+				<br />
+				Name <input type="Text" onChange=(this.changeColor) id="namebox"/>
+				<AppInner color=(this.state.childColor) name=(this.state.name)/>
+			</div>
+		);
+	}
+}
+
+class AppInner extends React.Component {
+	constructor(props) {
+		super(props)
+	}
+	render() {
+		const txtStyle = { color: this.props.color }
+		return <span style={txtStyle}>{this.props.name}</span>
+	}
+}
+```
 
 
