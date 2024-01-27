@@ -82,20 +82,77 @@ State can only be used natively in class components. In functional components, y
 Each React component consists of three lifecycle stages. 
 ### Mounting 
 Is the moment when a component is first created. 
+
+```
+import React from 'react';
+
+class App extends React.Component {
+	constructor(props) {
+		super(props)
+		console.log("Inside the constructor")
+	}
+
+	componentDidMount = () => {
+		console.log("Inside component did mount")
+	}
+
+	render() {
+		console.log("Inside render method")
+		return (
+			<div>
+				The component is rendered
+			</div>
+		);
+	}
+}
+
+export default App;
+```
+
+
 ### Update 
 Is the rendering of a component when its state or properties (props) change. 
+
+```
+import React from 'react';
+
+class App extends React.Component {
+	state = { counter: "0" };
+
+	incrementCounter = () => this.setState({ counter: parseInt(this.state.counter) + 1 });
+
+	shouldComponentUpdate() {
+		console.log("Inside shouldComponentUpdate")
+		return true;
+	}
+
+	getSnapshotBeforeUpdate(prevProps, prevState) {
+		console.log("Inside shouldComponentUpdate ");
+		console.log("Prev counter is " + prevState.counter);
+		console.log("New counter is " + this.state.counter);
+		return prevState;
+	}
+
+	componentDidUpdate() {
+		console.log("Inside component did mount")
+	}
+
+	render() {
+		console.log("Inside render method")
+		return (
+			<div>
+				The component is rendered
+			</div>
+		);
+	}
+}
+
+export default App;
+```
+
+
 ### Unmounting 
 Is the removal of a component from the Document Object Model (DOM).
-
-
-1. The `constructor()` method creates an object. This can call a super constructor with the props object if any specific properties are set.
-1. The `getDerivedStateFromProps()` method is used only when the state depends on changes in the props.
-1. The `render()` method is required in a React component. This method causes the component to appear. It must return a DOM element and can only return a single root element, which may or may not contain many nested child elements.
-1. The `componentDidMount()` method is called immediately after the component is mounted or inserted into the DOM tree.
-1. The `getDerivedStateFromProps()` method is used only when the state depends on changes in the props.
-1. The `shouldComponentUpdate()` method returns true by default.
-1. The `getSnapshotBeforeUpdate()` method is called just before the changes are rendered. It helps you track changes. Any value returned by this lifecycle will be passed as a parameter to the `componentDidUpdate()` method, and `componentDidUpdate()` will be called immediately after the update.
-1. When a component is unmounted or removed from the DOM tree, the `componentWillUnmount()` method is called.
 
 ```
 class App extends React.Component {
@@ -133,5 +190,16 @@ class AppInner extends React.Component {
 	}
 }
 ```
+
+
+## Methods
+1. The `constructor()` method creates an object. This can call a super constructor with the props object if any specific properties are set.
+1. The `getDerivedStateFromProps()` method is used only when the state depends on changes in the props.
+1. The `render()` method is required in a React component. This method causes the component to appear. It must return a DOM element and can only return a single root element, which may or may not contain many nested child elements.
+1. The `componentDidMount()` method is called immediately after the component is mounted or inserted into the DOM tree.
+1. The `getDerivedStateFromProps()` method is used only when the state depends on changes in the props.
+1. The `shouldComponentUpdate()` method returns true by default.
+1. The `getSnapshotBeforeUpdate()` method is called just before the changes are rendered. It helps you track changes. Any value returned by this lifecycle will be passed as a parameter to the `componentDidUpdate()` method, and `componentDidUpdate()` will be called immediately after the update.
+1. When a component is unmounted or removed from the DOM tree, the `componentWillUnmount()` method is called.
 
 
