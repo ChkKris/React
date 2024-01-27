@@ -165,6 +165,7 @@ export default App;
 
 ### Unmounting 
 Is the removal of a component from the Document Object Model (DOM).
+* `componentWillUnmount()`
 
 ```
 import React from 'react';
@@ -239,6 +240,9 @@ class AppInner extends React.Component {
 	}
 }
 ```
+
+## Initialization
+Component is constructed with props and default state.
 
 
 ## Methods
