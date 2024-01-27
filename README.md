@@ -83,6 +83,11 @@ Each React component consists of three lifecycle stages.
 ### Mounting 
 Is the moment when a component is first created. 
 
+* `constructor()`
+* `getDerivedStateFromProps()`
+* `render()`
+* `componentDidMount()`
+
 ```
 import React from 'react';
 
@@ -112,6 +117,12 @@ export default App;
 
 ### Update 
 Is the rendering of a component when its state or properties (props) change. 
+
+* `getDerivedStateFromProps()`
+* `shouldComponentUpdate()`
+* `render()`
+* `getSnapshotBeforeUpdate`
+* `componentDidMount()`
 
 ```
 import React from 'react';
@@ -154,6 +165,43 @@ export default App;
 
 ### Unmounting 
 Is the removal of a component from the Document Object Model (DOM).
+
+```
+import React from 'react';
+
+class AppInner extends React.Component {
+	componentWillUnmount() {
+		console.log("This component will unmount")
+	}
+	render() {
+		return <div>inner component</div>
+	}
+}
+
+class App extends React.Component {
+	state = { innerComponent: <AppInner /> }
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({innerComponent:<div>unmounted</div>})
+		}, 5000)
+	}
+
+	render() {
+		console.log("Inside render")
+		return (
+			<div>
+				{this.state.innerComponent}
+			</div>
+		);
+	}
+}
+
+export default App;
+```
+
+
+
+## Pass data to a child through props
 
 ```
 class App extends React.Component {
