@@ -1,4 +1,4 @@
-# React
+0# React
 React is a JavaScript user interface (UI) library created and maintained by Facebook and the developer community as open source.
 
 
@@ -22,6 +22,31 @@ Components in a React application can be styled by using the className attribute
 - A state is an object that describes the behavior and display of a component at a given moment.
 - A React component can be stateful or stateless.
 - Stateful components are a class type, while stateless components are a function type.
+
+## Creating and nesting components
+React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+
+React components are JavaScript functions that return markup:
+```
+function MyButton() {
+  return (
+    <button>
+      I'm a button
+    </button>
+  );
+}
+```
+Now that you’ve declared MyButton, you can nest it into another component:
+```
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton />
+    </div>
+  );
+}
+```
 
 Lifecycle methods are built-in React methods that work with
 components throughout their entire stay in the DOM.
