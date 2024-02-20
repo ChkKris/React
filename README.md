@@ -69,14 +69,16 @@ export default Helloworld;
 ```
 import React from "react";
 class App extends React.Component {
-constructor(props) {
-super(props);
-this.state={change: true };
+	constructor(props) {
+	super(props);
+	this.state={change: true };
 }
 render() {
 return(
-<button Click={()=>{this.setState({change: !this.state.change});}}>Click Here!</button>
-{this.state.change?(Hello!!):(Welcome to the React Course)});}}
+<button Click={()=>{this.setState({change: !this.state.change});
+}}>Click Here!</button>
+{this.state.change?(Hello!!):(Welcome to the React Course)});
+}}
 export default App;
 ```
 
@@ -87,7 +89,7 @@ const shoot = () => {
     alert("Color Changed!");
 }
 return (
-<button onClick={change}>Change the Color! </button>
+	<button onClick={change}>Change the Color! </button>
 );
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -285,8 +287,10 @@ Component is constructed with props and default state.
 Functions called hooks enable "hooking into" features of the React state and lifecycle from function components.
 ```
 importReact,{useState}from 'react';
+
 function CntApp() { 
 const[count,setCount]=useState(0);
+
 return(Youclicked{count}many times
 <buttononClick={()=>setCount(count+1)}>Clickme</button>
 );}
